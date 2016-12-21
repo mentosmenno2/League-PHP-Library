@@ -465,14 +465,4 @@
 	}
 
 	$riotApi = new riotApi();
-
-	$classMethods = get_class_methods($riotApi);
-	
-	if (isset($_GET['function'])) {
-		echo $riotApi->$classMethods[$_GET['function']]();
-	}
-	else {
-		echo $riotApi->getFreeToPlay();
-	}
-	
 ?>
