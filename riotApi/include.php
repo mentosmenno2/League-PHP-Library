@@ -12,6 +12,10 @@
 	}
 
 	$riotApi = new riotApi();
+<<<<<<< HEAD
 
 	echo $riotApi->get->freeToPlay();
 ?>
+=======
+?>
+>>>>>>> origin/master
