@@ -4,6 +4,7 @@
 		//Configurable variables
 		private $API_KEY;
 		private $DEFAULT_REGION;
+		private $RETURN_JSON;
 
 		//Static variables
 		private $PLATFORM_DATA;
@@ -15,9 +16,9 @@
 		public $region;
 
 		public function __construct() {
-			include 'config.php';
-			include 'static/platform_data.php';
-			include 'static/api_urls.php';
+			include dirname(__DIR__).'/config.php';
+			include dirname(__DIR__).'/static/platform_data.php';
+			include dirname(__DIR__).'/static/api_urls.php';
 			$this->region = $this->DEFAULT_REGION;
 		}
 
@@ -95,7 +96,12 @@
 				"responseCode" => $responseCode,
 				"data" => json_decode($result)
 			];
-			return json_encode($response);
+			if ($this->RETURN_JSON) {
+				return json_encode($response);
+			}
+			else {
+				return $response;
+			}
 		}
 	}
 ?>
