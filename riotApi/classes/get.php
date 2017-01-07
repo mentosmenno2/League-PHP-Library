@@ -159,7 +159,7 @@
 
 		public function staticDataItem($id, $itemListData = 'all') {
 			$parameters = [
-				"itemListData" => $champData
+				"itemListData" => $itemListData
 			];
 			$url = $this->getUrl('lol-static-data', 'item');
 			$url = str_replace("{id}", $id, $url);
@@ -192,7 +192,7 @@
 
 		public function staticDataMasteries($masteryListData = 'all') {
 			$parameters = [
-				"masteryListData" => $champData
+				"masteryListData" => $masteryListData
 			];
 			$url = $this->getUrl('lol-static-data', 'masteries');
 			return $this->request($url, $parameters);
@@ -200,7 +200,7 @@
 
 		public function staticDataMastery($id, $masteryListData = 'all') {
 			$parameters = [
-				"masteryListData" => $champData
+				"masteryListData" => $masteryListData
 			];
 			$url = $this->getUrl('lol-static-data', 'mastery');
 			$url = str_replace("{id}", $id, $url);
@@ -217,7 +217,7 @@
 
 		public function staticDataRunes($runeListData = 'all') {
 			$parameters = [
-				"runeListData" => $champData
+				"runeListData" => $runeListData
 			];
 			$url = $this->getUrl('lol-static-data', 'runes');
 			return $this->request($url, $parameters);
@@ -225,7 +225,7 @@
 
 		public function staticDataRune($id, $runeListData = 'all') {
 			$parameters = [
-				"runeListData" => $champData
+				"runeListData" => $runeListData
 			];
 			$url = $this->getUrl('lol-static-data', 'rune');
 			$url = str_replace("{id}", $id, $url);
@@ -234,7 +234,7 @@
 
 		public function staticDataSummonerSpells($spellData = 'all') {
 			$parameters = [
-				"spellData" => $champData
+				"spellData" => $spellData
 			];
 			$url = $this->getUrl('lol-static-data', 'summoner-spells');
 			return $this->request($url, $parameters);
@@ -242,7 +242,7 @@
 
 		public function staticDataSummonerSpell($id, $spellData = 'all') {
 			$parameters = [
-				"spellData" => $champData
+				"spellData" => $spellData
 			];
 			$url = $this->getUrl('lol-static-data', 'summoner-spell');
 			$url = str_replace("{id}", $id, $url);
