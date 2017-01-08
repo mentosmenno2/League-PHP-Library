@@ -123,7 +123,7 @@
 			return $this->request($url, $parameters);
 		}
 
-		public function getLeaguesMaster($type) {
+		public function leaguesMaster($type) {
 			$parameters = [
 				"type" => $type
 			];
