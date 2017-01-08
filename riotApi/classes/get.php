@@ -115,17 +115,17 @@
 			return $this->request($url, $parameters);
 		}
 
-		public function leaguesChallenger() {
+		public function leaguesChallenger($type) {
 			$parameters = [
-				
+				"type" => $type
 			];
 			$url = $this->getUrl('league', 'challenger');
 			return $this->request($url, $parameters);
 		}
 
-		public function getLeaguesMaster() {
+		public function getLeaguesMaster($type) {
 			$parameters = [
-				
+				"type" => $type
 			];
 			$url = $this->getUrl('league', 'master');
 			return $this->request($url, $parameters);
