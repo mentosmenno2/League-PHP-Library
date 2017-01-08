@@ -33,6 +33,7 @@
 			}
 			$url = str_replace("{apiVersion}", $endpointVersion, $url);
 			$url = str_replace("{region}", $this->region, $url);
+			$url = str_replace("{location}", $this->PLATFORM_DATA[strtoupper($this->region)]["platformId"], $url);
 			return $url;
 		}
 
