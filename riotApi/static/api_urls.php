@@ -75,7 +75,9 @@
 			'match' => [
 				'version' => 'v2.2',
 				'links' => [
-					'match' => '/api/lol/{region}/{apiVersion}/match/{matchId}'
+					'match' => '/api/lol/{region}/{apiVersion}/match/{matchId}',
+					'for-tournament' => '/api/lol/{region}/{apiVersion}/match/for-tournament/{matchId}',
+					'by-tournament' => '/api/lol/{region}/{apiVersion}/match/by-tournament/{tournamentCode}/ids'
 				]
 			],
 			'matchlist' => [

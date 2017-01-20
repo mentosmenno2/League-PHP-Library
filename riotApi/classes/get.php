@@ -100,7 +100,7 @@
 				
 			];
 			$url = $this->getUrl('league', 'league');
-			$summonerIdsList = listToCommaSeparated($summonerIds);
+			$summonerIdsList = $this->listToCommaSeparated($summonerIds);
 			$url = str_replace("{summonerIds}", $summonerIdsList, $url);
 			return $this->request($url, $parameters);
 		}
@@ -110,7 +110,7 @@
 				
 			];
 			$url = $this->getUrl('league', 'leagueEntries');
-			$summonerIdsList = listToCommaSeparated($summonerIds);
+			$summonerIdsList = $this->listToCommaSeparated($summonerIds);
 			$url = str_replace("{summonerIds}", $summonerIdsList, $url);
 			return $this->request($url, $parameters);
 		}
@@ -133,7 +133,7 @@
 
 		public function staticDataChampions($dataById = false, $champData = 'all') {
 			$parameters = [
-				"dataById" => $dataById,
+				"dataById" => ($dataById) ? 'true' : 'false',
 				"champData" => $champData
 			];
 			$url = $this->getUrl('lol-static-data', 'champions');
@@ -151,7 +151,7 @@
 
 		public function staticDataItems($itemListData = 'all') {
 			$parameters = [
-				"itemListData" => $champData
+				"itemListData" => $itemListData
 			];
 			$url = $this->getUrl('lol-static-data', 'items');
 			return $this->request($url, $parameters);
@@ -257,7 +257,7 @@
 			return $this->request($url, $parameters);
 		}
 
-		public function lolChardsStatus() {
+		public function shardsStatus() {
 			$parameters = [
 				
 			];
@@ -265,12 +265,12 @@
 			return $this->request($url, $parameters);
 		}
 
-		public function lolChardStatus($shard) {
+		public function shardStatus() {
 			$parameters = [
 				
 			];
 			$url = $this->getUrl('lol-status', 'shard');
-			$url = str_replace("{shard}", $shard, $url);
+			$url = str_replace("{shard}", $this->region, $url);
 			return $this->request($url, $parameters);
 		}
 
@@ -283,10 +283,28 @@
 			return $this->request($url, $parameters);
 		}
 
+		public function matchForTournament($matchId) {
+			$parameters = [
+				
+			];
+			$url = $this->getUrl('match', 'for-tournament');
+			$url = str_replace("{matchId}", $matchId, $url);
+			return $this->request($url, $parameters);
+		}
+
+		public function matchByTournament($tournamentCode) {
+			$parameters = [
+				
+			];
+			$url = $this->getUrl('match', 'by-tournament');
+			$url = str_replace("{tournamentCode}", $tournamentCode, $url);
+			return $this->request($url, $parameters);
+		}
+
 		public function matchList($summonerId, $championIds = '', $rankedQueues = '', $seasons = '') {
-			$championIdsList = listToCommaSeparated($championIds);
-			$rankedQueuesList = listToCommaSeparated($rankedQueues);
-			$seasonsList = listToCommaSeparated($seasons);
+			$championIdsList = $this->listToCommaSeparated($championIds);
+			$rankedQueuesList = $this->listToCommaSeparated($rankedQueues);
+			$seasonsList = $this->listToCommaSeparated($seasons);
 			$parameters = [
 				'championIds' => $championIdsList,
 				'rankedQueues' => $rankedQueuesList,
@@ -298,7 +316,7 @@
 			return $this->request($url, $parameters);
 		}
 
-		public function rankedStats($summonerId, $season = "") {
+		public function statsRanked($summonerId, $season = "") {
 			$parameters = [
 				'season' => $season
 			];
@@ -321,7 +339,7 @@
 				
 			];
 
-			$summonerNamesList = listToCommaSeparated($summonerNames);
+			$summonerNamesList = $this->listToCommaSeparated($summonerNames);
 			$url = $this->getUrl('summoner', 'byName');
 			$url = str_replace("{summonerNames}", $summonerNamesList, $url);
 			return $this->request($url, $parameters);
@@ -332,7 +350,7 @@
 				
 			];
 
-			$summonerIdsList = listToCommaSeparated($summonerIds);
+			$summonerIdsList = $this->listToCommaSeparated($summonerIds);
 			$url = $this->getUrl('summoner', 'byId');
 			$url = str_replace("{summonerIds}", $summonerIdsList, $url);
 			return $this->request($url, $parameters);
@@ -343,7 +361,7 @@
 				
 			];
 
-			$summonerIdsList = listToCommaSeparated($summonerIds);
+			$summonerIdsList = $this->listToCommaSeparated($summonerIds);
 			$url = $this->getUrl('summoner', 'masteries');
 			$url = str_replace("{summonerIds}", $summonerIdsList, $url);
 			return $this->request($url, $parameters);
@@ -354,7 +372,7 @@
 				
 			];
 
-			$summonerIdsList = listToCommaSeparated($summonerIds);
+			$summonerIdsList = $this->listToCommaSeparated($summonerIds);
 			$url = $this->getUrl('summoner', 'name');
 			$url = str_replace("{summonerIds}", $summonerIdsList, $url);
 			return $this->request($url, $parameters);
@@ -365,7 +383,7 @@
 				
 			];
 
-			$summonerIdsList = listToCommaSeparated($summonerIds);
+			$summonerIdsList = $this->listToCommaSeparated($summonerIds);
 			$url = $this->getUrl('summoner', 'runes');
 			$url = str_replace("{summonerIds}", $summonerIdsList, $url);
 			return $this->request($url, $parameters);
